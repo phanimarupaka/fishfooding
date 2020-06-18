@@ -1,0 +1,15 @@
+# deployment.yaml -- updated
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  namespace: otherspace # {"$kpt-set":"namespace-setter"}
+spec:
+  replicas: 3
+  template:
+    spec:
+      containers:
+      - name: sidecar
+        image: nginx:1.7.9 # {"$kpt-set":"image-subst"}
+      - name: nginx
+        image: otherspace/nginx:1.7.9 # {"$kpt-set":"nested-subst"}

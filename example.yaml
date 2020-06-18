@@ -1,0 +1,7 @@
+# example.yaml
+apiVersion: example.com/v1beta1
+kind: Example
+spec:
+  list: # {"$kpt-set":"array-setter"}
+  - "a"
+  - "b"
